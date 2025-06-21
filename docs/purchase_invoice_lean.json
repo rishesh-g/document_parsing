@@ -1,0 +1,90 @@
+{
+  "ENVELOPE": {
+    "HEADER": {
+      "TALLYREQUEST": "Import Data"
+    },
+    "BODY": {
+      "IMPORTDATA": {
+        "REQUESTDESC": {
+          "REPORTNAME": "Vouchers",
+          "STATICVARIABLES": {
+            "SVCURRENTCOMPANY": "Kiran Enterprises"
+          }
+        },
+        "REQUESTDATA": {
+          "TALLYMESSAGE": {
+            "VOUCHER": {
+              "@REMOTEID": "2c7bf913-4ddc-4b44-9e9a-8a60ef9aed5a-00000002",
+              "@VCHTYPE": "Purchase",
+              "@ACTION": "Create",
+              "@OBJVIEW": "Invoice Voucher View",
+              "GUID": "2c7bf913-4ddc-4b44-9e9a-8a60ef9aed5a-00000002",
+              "DATE": "20250401",
+              "VOUCHERTYPENAME": "Purchase",
+              "VOUCHERNUMBER": "2",
+              "REFERENCE": "12345",
+              "PARTYLEDGERNAME": "Surabhi Hardwares",
+              "PERSISTEDVIEW": "Invoice Voucher View",
+              "ISINVOICE": "Yes",
+              "VCHENTRYMODE": "Item Invoice",
+              "ALLINVENTORYENTRIES.LIST": {
+                "STOCKITEMNAME": "12MM",
+                "RATE": "500.00/Nos",
+                "BILLEDQTY": "7 Nos",
+                "ACTUALQTY": "7 Nos",
+                "ISDEEMEDPOSITIVE": "Yes",
+                "AMOUNT": "-3500.00",
+                "BATCHALLOCATIONS.LIST": {
+                  "GODOWNNAME": "Main Location",
+                  "BATCHNAME": "Primary Batch",
+                  "AMOUNT": "-3500.00",
+                  "BILLEDQTY": "7 Nos",
+                  "ACTUALQTY": "7 Nos"
+                },
+                "ACCOUNTINGALLOCATIONS.LIST": {
+                  "LEDGERNAME": "Purchase @9%",
+                  "ISDEEMEDPOSITIVE": "Yes",
+                  "AMOUNT": "-3500.00"
+                },
+                "RATEDETAILS.LIST": [
+                  {
+                    "GSTRATEDUTYHEAD": "CGST",
+                    "GSTRATE": "9",
+                    "GSTRATEVALUATIONTYPE": "Based on Value"
+                  },
+                  {
+                    "GSTRATEDUTYHEAD": "SGST/UTGST",
+                    "GSTRATE": "9",
+                    "GSTRATEVALUATIONTYPE": "Based on Value"
+                  }
+                ]
+              },
+              "LEDGERENTRIES.LIST": [
+                {
+                  "LEDGERNAME": "Surabhi Hardwares",
+                  "ISPARTYLEDGER": "Yes",
+                  "AMOUNT": "4130.00",
+                  "BILLALLOCATIONS.LIST": {
+                    "NAME": "12345",
+                    "BILLTYPE": "New Ref",
+                    "AMOUNT": "4130.00"
+                  }
+                },
+                {
+                  "LEDGERNAME": "CGST @9%",
+                  "ISDEEMEDPOSITIVE": "Yes",
+                  "AMOUNT": "-315.00"
+                },
+                {
+                  "LEDGERNAME": "SGST @9%",
+                  "ISDEEMEDPOSITIVE": "Yes",
+                  "AMOUNT": "-315.00"
+                }
+              ]
+            }
+          }
+        }
+      }
+    }
+  }
+}

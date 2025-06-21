@@ -1,0 +1,79 @@
+{
+  "ENVELOPE": {
+    "HEADER": {
+      "TALLYREQUEST": "Type of Tally operation being requested. For imports, use 'Import Data'"
+    },
+    "BODY": {
+      "IMPORTDATA": {
+        "REQUESTDESC": {
+          "REPORTNAME": "Type of data to be imported. 'Vouchers' for financial entries",
+          "STATICVARIABLES": {
+            "SVCURRENTCOMPANY": "The company name in Tally to which this data applies which is the buyer name in case of purchase invoice."
+          }
+        },
+        "REQUESTDATA": {
+          "TALLYMESSAGE": {
+            "VOUCHER": {
+              "@REMOTEID": "<str> - : Unique ID used by Tally to detect duplicates. Will be passed along with the chat",
+              "@VCHTYPE": "<str> - : Voucher type, such as Purchase, Sales, Payment, etc.",
+              "@ACTION": "<str> - : Action to perform - usually 'Create' or 'Alter'.",
+              "@OBJVIEW": "<By Default> - : 'Invoice Voucher View'",
+              "GUID": "<str> - : Unique ID used by Tally to detect duplicates. Will be passed along with the chat. Same as '@REMOTEID'.",
+              "DATE": "<str> - : Voucher date in YYYYMMDD format. (e.g., 20250401)",
+              "VOUCHERTYPENAME": "<str> - : The human-readable voucher type (e.g., 'Purchase').",
+              "REFERENCE": "<str> - : Supplier invoice number of the voucher.",
+              "PARTYLEDGERNAME": "<str> - : Ledger name of the supplier/vendor.",
+              "PERSISTEDVIEW": "<By default> - : 'Invoice Voucher View'",
+              "ISINVOICE": "<boolean (Yes/No)> - : Marks the voucher as an invoice entry. Default - 'Yes'",
+              "VCHENTRYMODE": "<By default> - : Item Invoice",
+              "ALLINVENTORYENTRIES.LIST": {
+                "STOCKITEMNAME": "<str> - : Name of the stock item.",
+                "RATE": "<str> - : Rate per unit with unit mentioned (e.g., '500.00/Nos').",
+                "BILLEDQTY": "<str> - : Quantity billed with unit (e.g., '7 Nos').",
+                "ACTUALQTY": "<str> - : Actual quantity received (usually same as billed).",
+                "ISDEEMEDPOSITIVE": "<By Default> - : 'Yes'",
+                "AMOUNT": "<str> - : Amount for the inventory or ledger line (negative for purchase).",
+                "BATCHALLOCATIONS.LIST": {
+                  "GODOWNNAME": "<By default> - : Main Location",
+                  "BATCHNAME": "<By default> - : Primary Batch",
+                  "AMOUNT": "<str> - : Amount for the inventory or ledger line (negative for purchase).",
+                  "BILLEDQTY": "<str> - : Quantity billed with unit (e.g., '7 Nos').",
+                  "ACTUALQTY": "<str> - : Actual quantity received (usually same as billed)."
+                },
+                "ACCOUNTINGALLOCATIONS.LIST": {
+                  "LEDGERNAME": "<str> - : Name of the ledger to which the amount is posted (e.g., 'Purchase @x%'). The value of x would be based on the applicable tax rate. E.g. - If CGST and SGST are at 9% each, then x=9 and this entry is 'Purchase @9%'",
+                  "ISDEEMEDPOSITIVE": "<boolean (Yes/No)> - : Yes",
+                  "AMOUNT": "<str> - : Amount for the inventory or ledger line (negative for purchase)."
+                },
+                "RATEDETAILS.LIST": [
+                  {
+                    "GSTRATEDUTYHEAD": "<str> - : Tax component name (e.g., CGST, SGST/UTGST).",
+                    "GSTRATE": "<str> - : Applicable tax rate (e.g. - 9)",
+                    "GSTRATEVALUATIONTYPE": "<By default> - : Based on Value"
+                  }
+                ]
+              },
+              "LEDGERENTRIES.LIST": [
+                {
+                  "LEDGERNAME": "<str> - : Indicates whether this ledger is a party (Yes/No).",
+                  "ISPARTYLEDGER": "<boolean (Yes/No)> - : Indicates whether this ledger is a party (Yes/No).",
+                  "AMOUNT": "<str> - : Total Bill amount with tax.",
+                  "BILLALLOCATIONS.LIST": {
+                    "NAME": "<str> - : invoice number for the bill.",
+                    "BILLTYPE": "<By default> - : New Ref",
+                    "AMOUNT": "<str> - : Total Bill amount with tax."
+                  }
+                },
+                {
+                  "LEDGERNAME": "<str> - : Ledger for the individual duty and tax entries(e.g. - CGST @9%)",
+                  "ISDEEMEDPOSITIVE": "<boolean (Yes/No)> - : Yes",
+                  "AMOUNT": "Tax amount for that category."
+                }
+              ]
+            }
+          }
+        }
+      }
+    }
+  }
+}
