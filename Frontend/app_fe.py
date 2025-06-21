@@ -1,5 +1,6 @@
 import streamlit as st
 import requests
+import config
 
 st.title("Upload an Image File")
 
@@ -11,7 +12,7 @@ if uploaded_file is not None:
         'file': (uploaded_file.name, uploaded_file, uploaded_file.type)
     }
     # Send the file to the Flask backend
-    response = requests.post("http://localhost:5000/upload", files=files)
+    response = requests.post(config.APP_URL, files=files)
     if response.ok:
         st.write("Result from backend:")
         st.json(response.json())
