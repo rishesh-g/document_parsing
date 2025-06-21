@@ -1,4 +1,8 @@
 MODEL = 'qwen2.5vl:7b'
 TEMPERATURE = 0.1
-HOST = '172.19.176.1'
-PORT = '9000'
+ACC_HOST = '172.19.176.1'
+ACC_PORT = '9000'
+APP_HOST = 'localhost'
+APP_PORT = '5000'
+
+

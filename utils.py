@@ -58,14 +58,14 @@ def convert_json_to_xml(json_data):
     return xml_data
 
 
-def upload_to_crm(xml_data, url, headers):
+def upload_to_acc(xml_data, url, headers):
     """
-    Upload XML data to a CRM system.
+    Upload XML data to a accounting software.
 
     :param xml_data: XML string
-    :param url: URL of the CRM endpoint
+    :param url: URL of the accounting software endpoint
     :param headers: Headers for the HTTP request
-    :return: Response from the CRM system
+    :return: Response from the accounting software
     """
 
     response = requests.post(
