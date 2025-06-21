@@ -1,0 +1,4 @@
+MODEL = 'qwen2.5vl:7b'
+TEMPERATURE = 0.1
+HOST = '172.19.176.1'
+PORT = '9000'
