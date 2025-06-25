@@ -1,0 +1,46 @@
+services:
+  ollama:
+    image: ollama/ollama
+    container_name: ollama
+    ports:
+      - "11435:11434"
+    networks:
+      - doc_parse_bridge
+    deploy:
+      resources:
+        reservations:
+          devices:
+            - capabilities: [gpu]
+    volumes:
+      - /usr/share/ollama/.ollama:/root/.ollama
+    restart: unless-stopped
+
+  backend:
+    image: flask-llm-backend
+    container_name: backend
+    ports:
+      - "5000:5000"
+    networks:
+      - doc_parse_bridge
+    environment:
+      - OLLAMA_HOST=http://ollama:11434
+    depends_on:
+      - ollama
+    restart: unless-stopped
+
+  frontend:
+    image: streamlit-ui
+    container_name: frontend
+    ports:
+      - "8501:8501"
+    networks:
+      - doc_parse_bridge
+    environment:
+      - APP_URL=http://backend:5000
+    depends_on:
+      - backend
+    restart: unless-stopped
+
+networks:
+  doc_parse_bridge:
+    driver: bridge

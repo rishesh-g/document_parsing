@@ -1,4 +1,3 @@
-
 from doc_parsing import extract_and_upload
 from flask import Flask, request, jsonify
 import config
