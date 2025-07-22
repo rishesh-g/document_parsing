@@ -4,5 +4,7 @@ ACC_HOST = '172.19.176.1'
 ACC_PORT = '9000'
 APP_HOST = '0.0.0.0'
 APP_PORT = '5000'
-
-
+LANGSMITH_API_KEY = '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'
+LANGSMITH_TRACING = 'true'
+LANGSMITH_ENDPOINT = 'https://api.langsmith.com'
+LANGSMITH_PROJECT = 'doc_parsing'

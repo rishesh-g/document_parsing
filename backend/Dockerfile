@@ -1,8 +1,8 @@
 # Use NVIDIA’s CUDA base image with Ubuntu
-FROM nvidia/cuda:12.2.0-devel-ubuntu22.04
-
+# FROM nvidia/cuda:12.2.0-devel-ubuntu22.04
+FROM python:3.10-slim
 # Install Python and pip
-RUN apt update && apt install -y python3 python3-pip
+# RUN apt update && apt install -y python3 python3-pip
 
 # Set the working directory
 WORKDIR /app
